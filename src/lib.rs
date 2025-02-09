@@ -4,7 +4,8 @@
 //! Enable the 'parser' flag if you want to use the parser.
 //! Everything related to the parser can be found at [parser]
 //!
-#[doc = include_str!("../README.md")]
+#![doc = include_str!("../README.md")]
+
 use tokio::io::{AsyncReadExt, AsyncWriteExt};
 use tokio::net::TcpStream;
 use std::future::Future;
