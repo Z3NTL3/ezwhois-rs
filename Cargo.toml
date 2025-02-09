@@ -1,6 +1,6 @@
 [package]
 name = "ezwhois-rs"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 readme = "README.md"
 description = "A crate for querying WHOIS data and parsing this information, while providing a comfortable high-level API"
