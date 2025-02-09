@@ -19,16 +19,6 @@ pub struct WhoisOpt {
 
 #[derive(Clone)]
 /// Whois instance, used for querying a domain to a specific WHOIS server for WHOIS data.
-///
-/// ### Example
-/// ```rust
-/// use crate::{Whois, WhoisOpt, WhoisResolver};
-/// let client = Whois::new(WhoisOpt{
-/// whois_server: "whois.iana.org:43", 
-/// domain2lookup: "simpaix.net"
-/// });
-/// let res = client.query().await.expect("expected a response");
-/// ```
 pub struct Whois{
     target: WhoisOpt
 }
@@ -37,38 +27,12 @@ pub trait WhoisResolver: Sized {
     type Error;
 
     /// Creates a new whois instance and configures the target
-    /// 
-    /// ### Example
-    /// ```
-    /// #[tokio::main]
-    /// async fn main() {
-    ///     let client = Whois::new(WhoisOpt{
-    ///         whois_server: "whois.iana.org:43", 
-    ///         domain2lookup: "simpaix.net"
-    ///     });
-    /// }```
-    /// 
     fn new(opt: WhoisOpt) -> Whois;
     
     /// Queries the WHOIS server and retrieves domain information.
     /// Returns WHOIS information as a string.
     ///
     /// So that you can use any arbitrary parser.
-    /// 
-    /// ### Example
-    /// ```
-    /// #[tokio::main]
-    /// async fn main() {
-    ///     let client = Whois::new(WhoisOpt{
-    ///         whois_server: "whois.iana.org:43", 
-    ///         domain2lookup: "simpaix.net"
-    ///     });
-    ///     let res = client.query().await.expect("expected a response");
-    ///
-    ///     let parser = parser::Parser::new();
-    ///     let info = parser.parse(res).unwrap();
-    ///     println!("{}{}", info.creation_date.unwrap().format("%d/%m/%Y %H:%M") ,info.domain_status.unwrap()); // info.registry_domain_id , etc etc
-    /// }```
     fn query(&self) -> impl Future<Output = Result<String, Self::Error>>;
 }
 
