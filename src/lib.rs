@@ -18,7 +18,7 @@ pub struct WhoisOpt {
 }
 
 #[derive(Clone)]
-/// Whois instance, used for querying a domain to a specific WHOIS server for WHOIS data.
+/// Whois instance, used for querying a domain to a specific WHOIS server for WHOIS data
 pub struct Whois{
     target: WhoisOpt
 }
