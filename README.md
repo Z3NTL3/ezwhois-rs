@@ -1,6 +1,6 @@
 # ezwhois-rs
 
-A crate for retrieving WHOIS data comfortably. It seperates the WHOIS information parser and querying part. By default the parser implementation is included. Disable ``default-futures`` for this trait if you would like to use a different parser.
+A crate for retrieving WHOIS data comfortably. It seperates the WHOIS information parser and querying part. By default the parser implementation is included. Disable ``default-futures`` for this crate if you would like to use a different parser.
 
 #### Usage
 ```rust
