@@ -22,15 +22,15 @@ pub struct WhoisOpt {
 #[derive(Clone)]
 /// Whois instance, used for querying a domain to a specific WHOIS server for WHOIS data
 /// ```
-/// # use ezwhois_rs::{
+/// use ezwhois_rs::{
 ///     parser::Parser,
 ///     Whois,
 ///     WhoisOpt,
 ///     WhoisResolver
 /// };
 /// 
-/// # #[tokio::main]
-/// # async fn main() {
+/// #[tokio::main]
+/// async fn main() {
 ///     let client = Whois::new(WhoisOpt{
 ///         whois_server: "whois.iana.org:43", 
 ///         domain2lookup: "simpaix.net"
@@ -43,7 +43,7 @@ pub struct WhoisOpt {
 ///         info.creation_date.unwrap().format("%d/%m/%Y %H:%M"),
 ///         info.registry_expirity_date.unwrap().format("%d/%m/%Y %H:%M")
 ///     ); // info.registry_domain_id , etc etc
-/// # }
+/// }
 /// ```
 pub struct Whois{
     target: WhoisOpt
